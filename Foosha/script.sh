@@ -38,4 +38,13 @@ service isc-dhcp-server restart
 ## cek status isc-dhcp-server
 service isc-dhcp-server status
 
+## Fixed Address Skypie
+echo '
+host Skypie {
+    hardware ethernet ca:85:61:e5:2d:0f;
+    fixed-address 192.212.3.69;
+}
+' >> /etc/dhcp/dhcpd.conf
 
+# restart isc-dhcp-server
+service isc-dhcp-server restart
