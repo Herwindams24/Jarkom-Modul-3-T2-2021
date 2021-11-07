@@ -1,2 +1,1 @@
-INTERFACES="eth1"
-INTERFACES="eth3"
+INTERFACES="eth1 eth3"
