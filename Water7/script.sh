@@ -33,13 +33,14 @@ service squid restart
 apt-get update
 apt-get install -y apache2-utils
 
-## buat username dan password baru pada /etc/squid/passwd dengan username 
-## gunakan command khusus -m agar defaultnya dalam MD5 (APR1-MD5)
+## C buat username dan password baru pada /etc/squid/passwd dengan username 
+## M buat defaultnya dalam MD5 (APR1-MD5)
+## B buat 1 line command
 # username luffybelikapalti2 dan password luffy_ti2
-htpasswd -m -b -c /etc/squid/passwd luffybelikapalti2 luffy_ti2
+htpasswd -mbc /etc/squid/passwd luffybelikapalti2 luffy_ti2
 
 # username zorobelikapalti2 dan password zoro_ti2
-htpasswd -m -b /etc/squid/passwd zorobelikapalti2 zoro_ti2
+htpasswd -mb /etc/squid/passwd zorobelikapalti2 zoro_ti2
 
 ## Perbaharui konfigurasi squid dengan autentikasi
 echo 'http_port 5000
@@ -74,13 +75,28 @@ auth_param basic program /usr/lib/squid/basic_ncsa_auth /etc/squid/passwd
 auth_param basic children 5
 auth_param basic realm Proxy
 auth_param basic credentialsttl 2 hours
-
 auth_param basic casesensitive on
 acl USERS proxy_auth REQUIRED
-http_access allow USERS AVAILABLE_WORKING
-http_access deny all' > /etc/squid/squid.conf
+
+# http_access allow USERS AVAILABLE_WORKING
+# http_access deny all
+
+' > /etc/squid/squid.conf
 
 # restart squid
 service squid restart
 
 ###-No10-------------Pembatasan transaksi jual beli akses waktu-------------###
+
+###-No11-------Diredirect menuju super.franky.yyy.com-------------------###
+### Edit konfigurasi pada squid.conf
+echo '
+acl lan src 192.212.1.0/24  192.212.3.0/24       # client acl for the lan
+acl badsites dstdomain .google.com               # to deny ".google.com"
+deny_info http://its.ac.id lan               # Deny with redirect to google.com for lan
+http_reply_access deny badsites lan              # Deny badsites to lan
+
+http_access allow USERS AVAILABLE_WORKING
+http_access deny all
+' >> /etc/squid/squid.conf
+
