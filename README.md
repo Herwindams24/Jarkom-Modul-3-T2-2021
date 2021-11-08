@@ -30,8 +30,10 @@ Kelompok T02
    **Soal**
    
    Ada beberapa kriteria yang ingin dibuat oleh Luffy dan Zoro, yaitu:
-	1. Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server.
-	2. Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.20 - [prefix IP].1.99 dan [prefix IP].1.150 - [prefix IP].1.169
+   
+   Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server.
+	
+   Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.20 - [prefix IP].1.99 dan [prefix IP].1.150 - [prefix IP].1.169
 
    **Jawaban**
    
@@ -40,7 +42,7 @@ Kelompok T02
 ## Nomor 04
    **Soal**
    
-   	3. Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.30 - [prefix IP].3.50 
+   Client yang melalui Switch3 mendapatkan range IP dari [prefix IP].3.30 - [prefix IP].3.50 
    
    **Jawaban**
    
@@ -49,7 +51,7 @@ Kelompok T02
 ## Nomor 05
    **Soal**
    
-   	4. Client mendapatkan DNS dari EniesLobby dan client dapat terhubung dengan internet melalui DNS tersebut. 
+   Client mendapatkan DNS dari EniesLobby dan client dapat terhubung dengan internet melalui DNS tersebut. 
 
    **Jawaban**
 
@@ -58,7 +60,7 @@ Kelompok T02
 ## Nomor 06
    **Soal**
    
-   	5. Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 6 menit sedangkan pada client yang melalui Switch3 selama 12 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 120 menit.
+   Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 6 menit sedangkan pada client yang melalui Switch3 selama 12 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 120 menit.
 
    **Jawaban**
 
