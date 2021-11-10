@@ -6,13 +6,33 @@ Kelompok T02
   * Dava Aditya Jauhar (05311940000030)
 
 ---
+### Pendahuluan
+	
+Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, lalu buat hubungan antar node dan nama-nama dari node hingga seperti di gambar
 
+<img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/topologi.png?raw=true" width="700">
+
+---
 ## Nomor 01
    **Soal**
    
    Luffy bersama Zoro berencana membuat peta tersebut dengan kriteria EniesLobby sebagai DNS Server, Jipangu sebagai DHCP Server, Water7 sebagai Proxy Server 
    
    **Jawaban**
+   
+   1. Edit masing-masing konfigurasi tiap node seperti gambar di bawah ini:
+   
+      **Jipangu**
+   
+      <img src="" width="500">
+   
+      **Water 7**
+   
+      <img src="" width="500">
+    
+      **EniesLobby**
+   
+      <img src="" width="500">
    
   
 ---
