@@ -10,7 +10,7 @@ sysctl -p
 ## edit konfigurasi isc-dhcp-relay dengan server di jipangu 
 echo '
 SERVERS="192.212.2.4"
-INTERFACES="eth1 eth2 eth3"
+INTERFACES="eth1 eth3 eth1"
 ' > /etc/default/isc-dhcp-relay
 
 ## restart service isc-dhcp-relay
