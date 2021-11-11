@@ -44,6 +44,36 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
 
    **Jawaban**
    
+   <img src="" width="500">
+   
+   1. Update ubuntu sebelum menginstall DHCP Relay 
+   
+      ```
+      apt-get update
+      apt-get install isc-dhcp-relay
+      ```
+      
+   2. Setting `sysctl` untuk IP Forwarding
+    
+      ```
+      echo 'net.ipv4.ip_forward=1' > /etc/sysctl.conf
+      sysctl -p
+      ```
+      
+   3. Edit konfigurasi isc-dhcp-relay agar sesuai dengan isc-dhcp-server di Jipangu. Server yang dituju merupakan IP Server Jipangu yang merupakan DHCP server. `INTERFACES=` diisi dengan eth1 eth3 eth2, karena pada DHCP relay (Foosha) akan meneruskan DHCP request dari network interface eth1 dan eth3, lalu meneruskannya ke DHCP server melalui eth2.
+
+      ```
+      echo '
+       SERVERS="192.212.2.4"
+       INTERFACES="eth1 eth3 eth2"
+       ' > /etc/default/isc-dhcp-relay
+      ```
+
+   4. Restart service isc-dhcp-relay
+
+      ```
+      service isc-dhcp-relay restart
+      ```
 ---
 
 ## Nomor 03
@@ -57,6 +87,43 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
 
    **Jawaban**
    
+   1. Install DHCP Server. Pastikan DHCP Server telah terinstal dengan melakukan cek versi. 
+   	
+      ```
+       apt-get update
+       apt-get install isc-dhcp-server 
+       dhcpd --version
+      ```
+	
+   2. Lalu setting INTERFACES yang digunakan oleh JIPANGU pada /root/script.sh dan cek apakah Interface telah sesuai setelah di bash pad file /etc/default/isc-dhcp-server
+      
+      ```
+       echo 'INTERFACES="eth0"' > /etc/default/isc-dhcp-server
+      ```
+      
+      <img src="" width="500">
+      
+   3. Agar DHCP Server dapat berjalan dan tidak error, perlu deklarasi subnet yang terkoneksi pada JIPANGU (subnet dari eth0 JIPANGU) pada /etc/dhcp/dhcpd.conf. Untuk subnet 2 tidak harus memiliki settingan dhcp.
+      
+      ```
+      echo '
+      subnet 192.212.2.0  netmask 255.255.255.248 {
+      }' > /etc/dhcp/dhcpd.conf
+      ```
+  4. ....
+     ```
+     ### Switch 1 (Loguetown, Alabasta)
+      echo '
+      subnet 192.212.1.0  netmask 255.255.255.0 {
+      range 192.212.1.20 192.212.1.99;
+      range 192.212.1.150 192.212.1.169;
+      option routers 192.212.1.1;
+      option broadcast-address 192.212.1.255;
+      option domain-name-servers 192.212.2.2;
+      default-lease-time 360;
+      max-lease-time 7200;
+     }' >> /etc/dhcp/dhcpd.conf
+     ```
 ---
 
 ## Nomor 04
