@@ -110,20 +110,10 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
       subnet 192.212.2.0  netmask 255.255.255.248 {
       }' > /etc/dhcp/dhcpd.conf
       ```
-  4. ....
-     ```
-     ### Switch 1 (Loguetown, Alabasta)
-      echo '
-      subnet 192.212.1.0  netmask 255.255.255.0 {
-      range 192.212.1.20 192.212.1.99;
-      range 192.212.1.150 192.212.1.169;
-      option routers 192.212.1.1;
-      option broadcast-address 192.212.1.255;
-      option domain-name-servers 192.212.2.2;
-      default-lease-time 360;
-      max-lease-time 7200;
-     }' >> /etc/dhcp/dhcpd.conf
-     ```
+  4. Setting DHCP server (Jipangu) agar subnet 1 mendapatkan range IP dari [prefix IP].1.20 - [prefix IP].1.99 dan [prefix IP].1.150 - [prefix IP].1.169. Di mana Prefix IP akan diisikan dengan `192.212` sesuai dengan Prefix yang digunakan oleh Kelemopok Penulis.
+  
+     <img src="" width="500">
+       
 ---
 
 ## Nomor 04
@@ -133,6 +123,10 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    
    **Jawaban**
    
+   Sama halnya dengan soal nomor 03, settingan subnet 3 sebagai berikut:
+
+   <img src="" width="500">
+   
 ---
 
 ## Nomor 05
@@ -141,6 +135,24 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    Client mendapatkan DNS dari EniesLobby dan client dapat terhubung dengan internet melalui DNS tersebut.
    
    **Jawaban**
+   
+   Pada settingan, tambahkan IP EniesLobby (192.212.2.2) pada options-domain-name-servers sebagai berikut:
+   
+   * Switch 1
+   	<img src="" width="500">
+   * Switch 3
+   	<img src="" width="500">
+	
+   Pada Client's Side
+   * Loguetown
+   	<img src="" width="500">
+   * Alabasta
+   	<img src="" width="500">
+   * TottoLand
+   	<img src="" width="500">
+   * Skypie
+   	<img src="" width="500">
+  
 
 ---
 
@@ -152,6 +164,16 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
 
    **Jawaban**
 
+   Masih pada Settingan yang sama, hanya mengubah `default-lease-time` untuk durasi DHCP server meminjamkan alamat IP kepada Client dan `max-lease-time` atau Waktu maksimal yang di alokasikan untuk peminjaman IP oleh DHCP server ke client dalam satuan detik. Edit satuan menit pada soal menjadi satuan detik.
+   
+   * Switch 1
+      
+      <img src="" width="500">
+      
+   * Switch 2
+     
+      <img src="" width="500">
+      
 ---
 
 ## Nomor 07
@@ -160,6 +182,15 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    Luffy dan Zoro berencana menjadikan Skypie sebagai server untuk jual beli kapal yang dimilikinya dengan alamat IP yang tetap dengan IP [prefix IP].3.69
 
    **Jawaban**
+ 
+   <img src="https://user-images.githubusercontent.com/57980125/141264002-50f87360-e9bf-4c63-9d87-0dd561604fcd.png" width="500"> 
+
+   Berikut tahapan-tahapan yang perlu dilakukan:
+   * Pada Jipangu ketik `ip a` untuk mendapatkan atau melihat `hwaddress`
+   * Ketikan script seperti pada gambar di atas di `/root/script.sh` milik Jipangu
+   * Coba lakukan test pada Node Skypie, apakah Skypie telah menyewa tetap IP terssebut (192.212.3.69)
+   
+   <img src="https://user-images.githubusercontent.com/57980125/141264904-261b2870-9e6a-4545-a1ab-bd3f63520f66.png" width="500">
 
 ---
 
@@ -169,6 +200,33 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    Pada Loguetown, proxy harus bisa diakses dengan nama jualbelikapal.yyy.com dengan port yang digunakan adalah 5000
 
    **Jawaban**
+
+   1. Water 7
+      
+      <img src="https://user-images.githubusercontent.com/57980125/141268294-9081c791-37a8-4fbd-9fe6-2248d99eb9e2.png" with="500">
+
+      * Install Squid dengan command `apt-get install squid` dan Cek status Squid
+      	 ```
+	 echo 'nameserver 192.168.122.1'>/etc/resolv.conf
+	 apt-get update
+	 apt-get install squid -y
+	 service squid status
+	 ```
+      * Restart Squid
+      * Konfigurasikan Squid Baru
+    	```
+	# konfigurasikan squid baru 
+	echo 'http_port 5000
+	visible_hostname jualbelikapal.ti2.com
+	' > /etc/squid/squid.conf
+	```
+     * Restart Squid
+
+   2. Loguetown
+   
+   Pada Loguetown hanya perlu mengaktifkan Proxy seperti pada gambar:
+   
+   <img src="https://user-images.githubusercontent.com/57980125/141266450-b734d95e-c1f8-47c0-b393-225434c2f8fa.png" width="500"> 
 
 ---
 
