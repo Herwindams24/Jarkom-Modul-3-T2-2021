@@ -301,6 +301,20 @@ User dari network 192.212.1.0 dan 192.212.2.0 dan sudah terauntentikasi melakuka
    Luffy bertugas untuk mendapatkan gambar (.png, .jpg), sedangkan Zoro mencari sisanya. Karena Luffy orangnya sangat teliti untuk mencari harta karun, ketika ia berhasil mendapatkan gambar, ia mendapatkan gambar dan melihatnya dengan kecepatan 10 kbps
 
    **Jawaban**
+Aplikasikan aturan (rule) proxy pada `squid.conf` berikut ini:
+![image](https://user-images.githubusercontent.com/57520495/141328448-1b7c9a21-2086-4bbb-8ef6-e0d2b7a3a5b3.png)
+Keterangan:
+1. `acl gambar url_regex -i \.png$ \.jpg$` Access Control List (ACL) bernama 'gambar' yang berisi URL dengan regular expression yang berlaku untuk semua request (apapun) dengan akhiran `.png` dan `.jpg`.
+2. `acl akun proxy_auth luffybelikapalti2` ACL bernama 'akun' yang berlaku untuk akses proxy dengan autentikasi (username) luffybelikapalti2
+3. `delay_pools 1` deklarasi sebuah (1) delay pools untuk mengaplikasikan aturan delay.
+4. `delay_class 1 1` deklarasi sebuah class bernomor 1 dengan tipe/jenis class 1 (hanya mengatur overall bandwith saja).
+5. `delay_parameters 1 1250/3200` deklarasi pengaturan bandwith pada class bernomor 1 sebesar 1250 B (Bytes) = 1.25 KB = 10 Kb (bit) saat sebuah request melewati burst limit sebesar 3200 Bytes*. 
+6. `delay_access 1 allow gambar akun` mengaplikasikan (sekaligus men-allow) aturan delay kepada ACL 'gambar' dan 'akun'.
+7. `delay_access 1 deny ALL` "tidak mengaplikasikan" aturan delay pada seluruh akses kecuali yang di-allow.
+8. `http_access deny ALL` deny semua akses http (karena ini merupakan akhir dari konfigurasi) selain yang di-allow, berhubungan dengan nomor 9 yang `http_access allow USERS AVAILABLE_WORKING`
+
+Test download file yang sama menggunakan autentikasi proxy Luffy:
+![image](https://user-images.githubusercontent.com/57520495/141328237-f4462942-dae0-4fd5-bab1-16707fc53808.png)
 
 ---
 
@@ -310,6 +324,8 @@ User dari network 192.212.1.0 dan 192.212.2.0 dan sudah terauntentikasi melakuka
    Sedangkan, Zoro yang sangat bersemangat untuk mencari harta karun, sehingga kecepatan kapal Zoro tidak dibatasi ketika sudah mendapatkan harta yang diinginkannya
 
    **Jawaban**
+
+
 
 ---
 
