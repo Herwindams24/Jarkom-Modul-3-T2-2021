@@ -322,6 +322,7 @@ Keterangan:
 Test download file yang sama menggunakan autentikasi proxy luffy:
 ![image](https://user-images.githubusercontent.com/57520495/141328237-f4462942-dae0-4fd5-bab1-16707fc53808.png)
 
+\*lihat bagian kendala
 ---
 
 ## Nomor 13
@@ -340,3 +341,4 @@ Test download file yang sama menggunakan autentikasi proxy zoro:
 
 ## Kendala
 
+1. Pada nomor 12, saat ingin mengaplikasikan delay_parameter dengan burst limit sangat kecil (1 atau bahkan 0) ternyata menyebabkan tidak dapat diaksesnya internet. Burst limit sangat kecil coba digunakan dengan niat agar semua request, berapapun sizenya, apabila merupakan sebuah file `.png` atau `.jpg` maka akan dikenakan aturan bandwith. AKhirnya diputuskan untuk menggunakan sebuah angka bebas, kelipatan 8 (tidak harus) yang hasilnya sesuai dengan yang diperintahkan.
