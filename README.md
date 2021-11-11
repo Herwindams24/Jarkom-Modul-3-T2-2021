@@ -277,6 +277,21 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    Setiap mengakses google.com, akan diredirect menuju super.franky.yyy.com dengan website yang sama pada soal shift modul 2. Web server super.franky.yyy.com berada pada node Skypie 
 
    **Jawaban**
+![image](https://user-images.githubusercontent.com/57520495/141327625-a2233900-b6d9-4372-826b-3b476728dd8d.png)
+
+Keterangan:
+1. `acl lan src 192.212.1.0/24 192.212.3.0/24` ACL bernama 'lan' yang berlaku untuk incoming request (source) yang berasal dari network 192.212.1.0 dan 192.212.3.0.
+2. `acl badsites dstdomain .google.com` ACL bernama 'badsites' yang berlaku untuk request dengan domain tujuan (destination) google.com.
+3. `deny_info http://super.franky.ti2.com lan` gunakan URL http://super.franky.ti2.com untuk ditampilkan kepada yang termasuk aturan ACL 'lan' saat ada aturan deny yang berjalan.
+4. `http_reply_access deny badsites lan` deny akses sesuai isi dari ACL badsites (situs google) yang (sumber requestnya) sesuai dengan aturan pada ACL 'lan'.
+5. `http_access allow USERS AVAILABLE_WORKING` allow akses http kepada user yang terauntetikasi dan memenuhi aturan pada ACL 'AVAILABLE_WORKING'.
+
+Cara kerja singkat:
+User dari network 192.212.1.0 dan 192.212.2.0 dan sudah terauntentikasi melakukan request dengan domain tujuan google.com -> request ditolak/diblokir (deny) -> tunjukkan informasi deny berupa situs http://super.franky.ti2.com -> secara tidak langsung sama dengan mengarahkan (redirect) ke situs tersebut 😁.
+
+![image](https://user-images.githubusercontent.com/57520495/141327800-8ef68d74-e605-4333-b864-2bc4543ddf86.png)
+![image](https://user-images.githubusercontent.com/57520495/141327746-1b67776b-e99c-46f1-91c3-c0409e96bae4.png)
+![image](https://user-images.githubusercontent.com/57520495/141327703-97fb8446-e9f2-497f-b596-0a32ed97eefb.png)
 
 ---
 
