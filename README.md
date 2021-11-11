@@ -325,7 +325,10 @@ Test download file yang sama menggunakan autentikasi proxy Luffy:
 
    **Jawaban**
 
+Mengaplikasikan aturan yang diaplikasikan pada nomor 12.
 
+Test download file yang sama menggunakan autentikasi proxy zoro:
+![image](https://user-images.githubusercontent.com/57520495/141328107-735ff85b-1af4-4663-9a19-98d4283c0744.png)
 
 ---
 
