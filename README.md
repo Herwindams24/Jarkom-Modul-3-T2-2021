@@ -277,6 +277,7 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    Setiap mengakses google.com, akan diredirect menuju super.franky.yyy.com dengan website yang sama pada soal shift modul 2. Web server super.franky.yyy.com berada pada node Skypie 
 
    **Jawaban**
+Aplikasikan aturan (rule) proxy pada `squid.conf` berikut ini:
 
 ![image](https://user-images.githubusercontent.com/57520495/141327625-a2233900-b6d9-4372-826b-3b476728dd8d.png)
 
