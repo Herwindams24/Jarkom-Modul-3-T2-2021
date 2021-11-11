@@ -277,6 +277,7 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    Setiap mengakses google.com, akan diredirect menuju super.franky.yyy.com dengan website yang sama pada soal shift modul 2. Web server super.franky.yyy.com berada pada node Skypie 
 
    **Jawaban**
+
 Aplikasikan aturan (rule) proxy pada `squid.conf` berikut ini:
 
 ![image](https://user-images.githubusercontent.com/57520495/141327625-a2233900-b6d9-4372-826b-3b476728dd8d.png)
@@ -303,6 +304,7 @@ User dari network 192.212.1.0 dan 192.212.2.0 dan sudah terauntentikasi melakuka
    Luffy bertugas untuk mendapatkan gambar (.png, .jpg), sedangkan Zoro mencari sisanya. Karena Luffy orangnya sangat teliti untuk mencari harta karun, ketika ia berhasil mendapatkan gambar, ia mendapatkan gambar dan melihatnya dengan kecepatan 10 kbps
 
    **Jawaban**
+
 Aplikasikan aturan (rule) proxy pada `squid.conf` berikut ini:
 
 ![image](https://user-images.githubusercontent.com/57520495/141328448-1b7c9a21-2086-4bbb-8ef6-e0d2b7a3a5b3.png)
