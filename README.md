@@ -247,9 +247,9 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
 
    2. Loguetown
    
-   	Pada Loguetown hanya perlu mengaktifkan Proxy seperti pada gambar:
+   Pada Loguetown hanya perlu mengaktifkan Proxy seperti pada gambar:
    
-   	<img src="https://user-images.githubusercontent.com/57980125/141266450-b734d95e-c1f8-47c0-b393-225434c2f8fa.png" width="500"> 
+   <img src="https://user-images.githubusercontent.com/57980125/141266450-b734d95e-c1f8-47c0-b393-225434c2f8fa.png" width="400"> 
 
 ---
 
