@@ -22,17 +22,36 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    
    1. Edit masing-masing konfigurasi tiap node seperti gambar di bawah ini:
    
-      **Jipangu**
+      **Jipangu sebagai DHCP Server**
    
-      <img src="" width="500">
+      <img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/editKonfigurasi_Jipangu.png?raw=true" width="500">
    
-      **Water 7**
+      **Water 7 sebagai Proxy Server**
    
-      <img src="" width="500">
+      <img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/editKonfigurasi_Water7.png?raw=true" width="500">
     
-      **EniesLobby**
+      **EniesLobby sebagai DNS Server**
    
-      <img src="" width="500">
+      <img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/editKonfigurasi_Jipangu.png?raw=true" width="500">
+      
+      **Loguetown dan Alabasta sebagai Client Side Switch 1**
+      
+      <img src="https://user-images.githubusercontent.com/57980125/141273010-0e4fde66-fb17-4677-9729-0ec78af04467.png" width="500">
+      
+      <img src="https://user-images.githubusercontent.com/57980125/141273252-87ab11eb-c546-4aca-b3ed-b3e982770fa8.png" width="500">
+      
+      **Skypie sebagai WebServer**
+      
+      <img src="https://user-images.githubusercontent.com/57980125/141273468-4a8b0e19-2acc-4793-8c16-08af97efeb94.png" width="500">
+      
+      **TottoLand sebagai Client Side Switch 1**
+      
+       <img src="https://user-images.githubusercontent.com/57980125/141273490-4c183666-e2d2-464c-9b3f-20c7b232f9af.png" width="500">
+      
+      
+      
+  2. Instalasi dan sebagainya akan dijelaskan pada jawaban soal berikutnya
+      
    
   
 ---
@@ -44,7 +63,7 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
 
    **Jawaban**
    
-   <img src="" width="500">
+   <img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/dhcp_relay.png?raw=true" width="500">
    
    1. Update ubuntu sebelum menginstall DHCP Relay 
    
@@ -101,7 +120,7 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
        echo 'INTERFACES="eth0"' > /etc/default/isc-dhcp-server
       ```
       
-      <img src="" width="500">
+      <img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/file%20dhcpserver.png?raw=true" width="500">
       
    3. Agar DHCP Server dapat berjalan dan tidak error, perlu deklarasi subnet yang terkoneksi pada JIPANGU (subnet dari eth0 JIPANGU) pada /etc/dhcp/dhcpd.conf. Untuk subnet 2 tidak harus memiliki settingan dhcp.
       
@@ -112,7 +131,7 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
       ```
   4. Setting DHCP server (Jipangu) agar subnet 1 mendapatkan range IP dari [prefix IP].1.20 - [prefix IP].1.99 dan [prefix IP].1.150 - [prefix IP].1.169. Di mana Prefix IP akan diisikan dengan `192.212` sesuai dengan Prefix yang digunakan oleh Kelemopok Penulis.
   
-     <img src="" width="500">
+     <img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/iprange_switch1.png?raw=true" width="500">
        
 ---
 
@@ -125,7 +144,7 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    
    Sama halnya dengan soal nomor 03, settingan subnet 3 sebagai berikut:
 
-   <img src="" width="500">
+   <img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/iprange_switch3.png?raw=true" width="500">
    
 ---
 
@@ -139,20 +158,29 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    Pada settingan, tambahkan IP EniesLobby (192.212.2.2) pada options-domain-name-servers sebagai berikut:
    
    * Switch 1
-   	<img src="" width="500">
+   	
+     <img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/dns_switch1.png?raw=true" width="500">
+	
    * Switch 3
-   	<img src="" width="500">
+   
+     <img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/dns_switch2.png?raw=true" width="500">
 	
    Pada Client's Side
    * Loguetown
-   	<img src="" width="500">
+   
+     <img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/Lease_Loguetown.png?raw=true" width="500">
+     
    * Alabasta
-   	<img src="" width="500">
+   	
+     <img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/Lease_Alabasta.png?raw=true" width="500">
+     
    * TottoLand
-   	<img src="" width="500">
+   
+     <img src="https://github.com/Herwindams24/soalshift-3/blob/main/Image/Lease_TotoLand.png?raw=true" width="500">
+     
    * Skypie
-   	<img src="" width="500">
-  
+   
+     <img src="https://user-images.githubusercontent.com/57980125/141270428-6da4d4e1-816a-428a-b6a7-75237ace8e36.png" width="500">  
 
 ---
 
@@ -168,11 +196,11 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    
    * Switch 1
       
-      <img src="" width="500">
+      <img src="https://user-images.githubusercontent.com/57980125/141270088-7353741b-423e-451e-a60f-e6e9e5bbd7ac.png" width="500">
       
    * Switch 2
      
-      <img src="" width="500">
+      <img src="https://user-images.githubusercontent.com/57980125/141270136-50a5f77e-5c1c-40a0-8441-9254302a94d6.png" width="500">
       
 ---
 
@@ -202,25 +230,20 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    **Jawaban**
 
    1. Water 7
-      
-      <img src="https://user-images.githubusercontent.com/57980125/141268294-9081c791-37a8-4fbd-9fe6-2248d99eb9e2.png" with="500">
 
-      * Install Squid dengan command `apt-get install squid` dan Cek status Squid
-      	 ```
-	 echo 'nameserver 192.168.122.1'>/etc/resolv.conf
-	 apt-get update
-	 apt-get install squid -y
-	 service squid status
-	 ```
+      *  Install dan Cek Status Squid
+      		```
+      	 	 echo 'nameserver 192.168.122.1'>/etc/resolv.conf
+	 	    apt-get update
+	 	    apt-get install squid -y
+	 	    service squid status
+         	```
       * Restart Squid
       * Konfigurasikan Squid Baru
-    	```
-	# konfigurasikan squid baru 
-	echo 'http_port 5000
-	visible_hostname jualbelikapal.ti2.com
-	' > /etc/squid/squid.conf
-	```
-     * Restart Squid
+      
+    	 <img src="https://user-images.githubusercontent.com/57980125/141268294-9081c791-37a8-4fbd-9fe6-2248d99eb9e2.png" with="500">
+	 
+      * Restart Squid
 
    2. Loguetown
    
