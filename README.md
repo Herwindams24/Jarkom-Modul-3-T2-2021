@@ -277,6 +277,7 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    Setiap mengakses google.com, akan diredirect menuju super.franky.yyy.com dengan website yang sama pada soal shift modul 2. Web server super.franky.yyy.com berada pada node Skypie 
 
    **Jawaban**
+
 ![image](https://user-images.githubusercontent.com/57520495/141327625-a2233900-b6d9-4372-826b-3b476728dd8d.png)
 
 Keterangan:
@@ -302,7 +303,9 @@ User dari network 192.212.1.0 dan 192.212.2.0 dan sudah terauntentikasi melakuka
 
    **Jawaban**
 Aplikasikan aturan (rule) proxy pada `squid.conf` berikut ini:
+
 ![image](https://user-images.githubusercontent.com/57520495/141328448-1b7c9a21-2086-4bbb-8ef6-e0d2b7a3a5b3.png)
+
 Keterangan:
 1. `acl gambar url_regex -i \.png$ \.jpg$` Access Control List (ACL) bernama 'gambar' yang berisi URL dengan regular expression yang berlaku untuk semua request (apapun) dengan akhiran `.png` dan `.jpg`.
 2. `acl akun proxy_auth luffybelikapalti2` ACL bernama 'akun' yang berlaku untuk akses proxy dengan autentikasi (username) luffybelikapalti2
@@ -313,7 +316,7 @@ Keterangan:
 7. `delay_access 1 deny ALL` "tidak mengaplikasikan" aturan delay pada seluruh akses kecuali yang di-allow.
 8. `http_access deny ALL` deny semua akses http (karena ini merupakan akhir dari konfigurasi) selain yang di-allow, berhubungan dengan nomor 9 yang `http_access allow USERS AVAILABLE_WORKING`
 
-Test download file yang sama menggunakan autentikasi proxy Luffy:
+Test download file yang sama menggunakan autentikasi proxy luffy:
 ![image](https://user-images.githubusercontent.com/57520495/141328237-f4462942-dae0-4fd5-bab1-16707fc53808.png)
 
 ---
