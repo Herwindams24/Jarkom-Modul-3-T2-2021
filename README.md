@@ -259,7 +259,25 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
    Agar transaksi jual beli lebih aman dan pengguna website ada dua orang, proxy dipasang autentikasi user proxy dengan enkripsi bcrypt dengan dua username, yaitu luffybelikapalyyy dengan password luffy_yyy dan zorobelikapalyyy dengan password zoro_yyy 
 
    **Jawaban**
+ 
+   * Install apache2-utils di _Water7_
 
+      <img src="https://user-images.githubusercontent.com/73151892/141352887-1ae81790-32da-4408-9c69-133e17971df2.png" width="500">
+
+   * Membuat username dan password luffybelikapalti2 luffy_ti2 dan zorobelikapalti2 zoro_ti2
+
+      <img src="https://user-images.githubusercontent.com/73151892/141353247-dd96ad57-7f48-4341-9b84-2a2063784373.png" width="500">
+
+   * Ubah Konfigurasi pada file /etc/squid/squid.conf
+      <img src="https://user-images.githubusercontent.com/73151892/141353972-de49b106-8e6e-48f0-aaae-ea2b394e0140.png" width="500">
+
+   * Restart Squid
+
+   * Pada Loguetown proxy diaktifkan, dan ketika mencoba lynx google.com akan diminta untuk memasukkan username dan password
+  
+      <img src="https://user-images.githubusercontent.com/73151892/141357216-52db5c80-4832-409b-9d1f-35015f46810c.png" width="500">
+
+      <img src="https://user-images.githubusercontent.com/73151892/141357247-6ae829e4-0167-4820-b5c5-49d7c49a33d3.png" width="500">
 ---
 
 ## Nomor 10
@@ -269,6 +287,15 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
 
    **Jawaban**
 
+   * Membuat file acl di Water7 untuk memberikan batas waktu akses, kemudian mengisi file acl tersebut dengan batas waktu akses yang ditentukan
+      
+      <img src="https://user-images.githubusercontent.com/73151892/141354408-4e278a9a-985a-4d0b-a095-7b3d35742dc5.png" width="500">
+
+   * Edit konfigurasi pada file squid.conf
+
+      <img src="https://user-images.githubusercontent.com/73151892/141355223-24487700-e9d2-4490-962b-69ca6a32caa2.png" width="500">
+
+   * Restart squid 
 ---
 
 ## Nomor 11
