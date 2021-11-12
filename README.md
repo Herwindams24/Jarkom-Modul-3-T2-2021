@@ -269,6 +269,7 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
       <img src="https://user-images.githubusercontent.com/73151892/141353247-dd96ad57-7f48-4341-9b84-2a2063784373.png" width="500">
 
    * Ubah Konfigurasi pada file /etc/squid/squid.conf
+   
       <img src="https://user-images.githubusercontent.com/73151892/141353972-de49b106-8e6e-48f0-aaae-ea2b394e0140.png" width="500">
 
    * Restart Squid
