@@ -296,7 +296,13 @@ Setting topologi dengan menambahkan beberapa node ethernet switch dan ubuntu, la
 
       <img src="https://user-images.githubusercontent.com/73151892/141355223-24487700-e9d2-4490-962b-69ca6a32caa2.png" width="500">
 
-   * Restart squid 
+   * Restart squid
+   
+   * Di Loguetown mencoba mengakses diluar batas waktu yang ditentukan
+
+      <img src="https://user-images.githubusercontent.com/73151892/141450264-f14f2205-8b21-4d86-abe1-8236a70da5c0.png" width="500">
+
+      <img src="https://user-images.githubusercontent.com/73151892/141450285-c095d27b-f1cc-4f5c-91ab-a06f2d116755.png" width="500">
 ---
 
 ## Nomor 11
